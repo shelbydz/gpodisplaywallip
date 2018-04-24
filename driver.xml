@@ -1,5 +1,5 @@
 <devicedata>
-  <version>4</version>
+  <version>5</version>
   <manufacturer>GPO</manufacturer>
   <model>EZ Display Wall</model>
   <search_type>c4:av_gen</search_type>
@@ -11,8 +11,8 @@
   <controlmethod>serial</controlmethod>
   <driver>DriverWorks</driver>
   <copyright>2018 CompleteAV</copyright>
-  <created>04/23/2018 4:52 PM</created>
-  <modified>04/23/2018 4:52 PM</modified>
+  <created>04/24/2018 4:41 PM</created>
+  <modified>04/24/2018 4:41 PM</modified>
   <proxies qty="1">
     <proxy proxybindingid="5000" primary="True">tv</proxy>
   </proxies>
@@ -23,6 +23,49 @@
     <power_command_delay>3</power_command_delay>
     <power_command_needed>False</power_command_needed>
     <serialsettings>19200 8 none 0 none 232</serialsettings>
+    <properties>
+      <property>
+        <name>Set ID</name>
+        <type>LIST</type>
+        <items>
+          <item>00</item>
+          <item>01</item>
+          <item>02</item>
+          <item>03</item>
+          <item>04</item>
+          <item>05</item>
+          <item>06</item>
+          <item>07</item>
+          <item>08</item>
+          <item>09</item>
+          <item>10</item>
+          <item>11</item>
+          <item>12</item>
+          <item>13</item>
+          <item>14</item>
+          <item>15</item>
+          <item>16</item>
+          <item>17</item>
+          <item>18</item>
+          <item>19</item>
+          <item>20</item>
+          <item>21</item>
+          <item>22</item>
+          <item>23</item>
+          <item>24</item>
+          <item>25</item>
+          <item>26</item>
+          <item>27</item>
+          <item>28</item>
+          <item>29</item>
+          <item>30</item>
+          <item>31</item>
+        </items>
+        <tooltip>Set ID to control, 00 = All'</tooltip>
+        <default>00</default>
+        <description>Set ID</description>
+      </property>
+    </properties>
   </config>
   <connections>
     <connection>

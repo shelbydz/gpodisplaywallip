@@ -44,7 +44,7 @@ function ProcessCommand(strCommand)
 	local command = ""
 	if KEY_CODES[strCommand] ~= nil then
 		-- return concated keycode
-		command = string.format(OSD_MENU, SET_ID, KEYCODES[strCommand]) 
+		command = string.format(OSD_MENU, SET_ID, KEY_CODES[strCommand]) 
 		C4:DebugLog("Key code found: " .. command)
 		print("Key code found: " .. command)
 	elseif CMDS_SERIAL[strCommand] ~= nil then
@@ -60,6 +60,12 @@ function ProcessCommand(strCommand)
     return command
 end
 
+function OnPropertyChanged(strName)
+    print(strName)
+    print (Properties[strName])
+    SET_ID = Properties[strName]
+    print (SET_ID)
+end
 function ReceivedFromProxy(idBinding, strCommand, tParams)
 	local command = ProcessCommand(strCommand)
 	C4:SendToSerial(SERIAL_BINDING, tohex(command))
