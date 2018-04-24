@@ -9,8 +9,8 @@
   <large>devices_lg/C4.gif</large>
   <control>lua_gen</control>
   <controlmethod>serial</controlmethod>
-  <driver>GPO Serial Driver by Complete AV</driver>
-  <copyright>DriverWorks</copyright>
+  <driver>DriverWorks</driver>
+  <copyright>2018 CompleteAV</copyright>
   <created>04/23/2018 4:52 PM</created>
   <modified>04/23/2018 4:52 PM</modified>
   <proxies qty="1">
