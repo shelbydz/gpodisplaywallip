@@ -1,0 +1,105 @@
+<devicedata>
+  <version>4</version>
+  <manufacturer>GPO</manufacturer>
+  <model>EZ Display Wall</model>
+  <search_type>c4:av_gen</search_type>
+  <creator>Complete AV</creator>
+  <name>GPO EZ Display Wall [Serial]</name>
+  <small>devices_sm/C4.gif</small>
+  <large>devices_lg/C4.gif</large>
+  <control>lua_gen</control>
+  <controlmethod>serial</controlmethod>
+  <driver>GPO Serial Driver by Complete AV</driver>
+  <copyright>DriverWorks</copyright>
+  <created>04/23/2018 4:52 PM</created>
+  <modified>04/23/2018 4:52 PM</modified>
+  <proxies qty="1">
+    <proxy proxybindingid="5000" primary="True">tv</proxy>
+  </proxies>
+  <config>
+    <script file="driver.lua"></script>
+    <power_management_method>DiscreteCodes</power_management_method>
+    <power_delay>2</power_delay>
+    <power_command_delay>3</power_command_delay>
+    <power_command_needed>False</power_command_needed>
+    <serialsettings>19200 8 none 0 none 232</serialsettings>
+  </config>
+  <connections>
+    <connection>
+      <type>2</type>
+      <id>5000</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>TV</connectionname>
+      <facing>1</facing>
+      <consumer>false</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>TV</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection proxybindingid="5000">
+      <type>1</type>
+      <id>1</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>RS_232</connectionname>
+      <facing>1</facing>
+      <consumer>true</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>RS_232</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection proxybindingid="5000">
+      <type>6</type>
+      <id>3000</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>HDMI</connectionname>
+      <facing>1</facing>
+      <consumer>true</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>HDMI</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection proxybindingid="5000">
+      <type>5</type>
+      <id>1000</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>HDMI</connectionname>
+      <facing>1</facing>
+      <consumer>true</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>HDMI</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection proxybindingid="5000">
+      <type>7</type>
+      <id>7000</id>
+      <audiosource>false</audiosource>
+      <videosource>true</videosource>
+      <connectionname>VIDEO_SELECTION</connectionname>
+      <facing>1</facing>
+      <consumer>false</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>VIDEO_SELECTION</classname>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <capabilities></capabilities>
+</devicedata>
