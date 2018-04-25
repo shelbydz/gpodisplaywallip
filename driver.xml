@@ -1,5 +1,5 @@
 <devicedata>
-  <version>7</version>
+  <version>8</version>
   <manufacturer>GPO</manufacturer>
   <model>EZ Display Wall</model>
   <search_type>c4:av_gen</search_type>
@@ -12,7 +12,7 @@
   <driver>DriverWorks</driver>
   <copyright>2018 CompleteAV</copyright>
   <created>04/01/2018 10:17 AM</created>
-  <modified>04/25/2018 10:16 AM</modified>
+  <modified>04/25/2018 10:31 AM</modified>
   <proxies qty="1">
     <proxy proxybindingid="5000" primary="True">tv</proxy>
   </proxies>

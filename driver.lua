@@ -57,8 +57,18 @@ function ProcessCommand(strCommand)
     return command
 end
 
+-- Manage Properties
+
 function OnPropertyChanged(strName)
     SET_ID = Properties[strName]
+    C4:DebugLog("SET_ID property changed to " .. Properties[strName])
+end
+
+-- C4 Stuff
+
+function OnDriverInit()
+    SET_ID = Properties["Set ID"]
+    C4:DebugLog("SET_ID property set to " .. Properties[strName])
 end
 
 function ReceivedFromProxy(idBinding, strCommand, tParams)
