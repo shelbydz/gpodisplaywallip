@@ -4,7 +4,8 @@
 --
 
 -- Binding variables
-SERIAL_BINDING = 1
+NETWORK_BINDING = 6000
+TCP_PORT = 5000
 
 -- Properties
 SET_ID = "00"
@@ -45,7 +46,7 @@ function ProcessCommand(strCommand)
 	if KEY_CODES[strCommand] ~= nil then
 		-- return concated keycode
 		command = string.format(OSD_MENU, SET_ID, KEY_CODES[strCommand]) 
-		C4:DebugLog("Key code found: " .. command)
+	     C4:DebugLog("Key code found: " .. command)
 	elseif CMDS_SERIAL[strCommand] ~= nil then
 		-- return command from cmds
 		command = CMDS_SERIAL[strCommand]
@@ -58,28 +59,46 @@ function ProcessCommand(strCommand)
 end
 
 -- Manage Properties
-
 function OnPropertyChanged(strName)
-    SET_ID = Properties[strName]
-    C4:DebugLog("SET_ID property changed to " .. Properties[strName])
+    C4:DebugLog(strName)
+    if strName == "Set ID" then
+	   SET_ID = Properties[strName]
+	   C4:DebugLog("SET_ID property changed to " .. Properties[strName])
+    end    
+end
+
+function OnBindingChanged(idBinding, strClass, bIsBound)
+    C4:DebugLog("binding id " .. idBinding)
+    c4:DebugLog("class " .. strClass)
+    C4:DebugLog(bIsBound)
 end
 
 -- C4 Stuff
 
-function OnDriverInit()
-    SET_ID = Properties["Set ID"]
-    C4:DebugLog("SET_ID property set to " .. Properties[strName])
+function OnConnectionStatusChanged(idBinding, nPort, strStatus)
+    UpdateNetworkStatus(strStatus)
+end
+
+function OnNetworkStatusChanged(idBinding, nPort, strStatus)
+    UpdateNetworkStatus(strStatus)
+end
+
+function OnNetworkBindingChanged(idBinding, bIsBound)
+    UpdateNetworkStatus(bIsBound)
+end
+
+function UpdateNetworkStatus(strStatus)
+    C4:UpdateProperty("Connected to Network", strStatus)
+    C4:DebugLog("network status changed: ")
+    C4:DebugLog(strStatus)
 end
 
 function ReceivedFromProxy(idBinding, strCommand, tParams)
 	local command = ProcessCommand(strCommand)
-	C4:SendToSerial(SERIAL_BINDING, tohex(command))
-	C4:DebugLog("Sending command " .. strCommand .. ": " .. command .. " to binding ID " .. SERIAL_BINDING)
+	C4:SendToNetwork(NETWORK_BINDING, TCP_PORT, "DCOM"..tohex(command))
+	C4:DebugLog("Sending command " .. strCommand .. ": DCOM" .. command .. " to binding ID " .. NETWORK_BINDING)
 end
 
-function ReceivedFromSerial(idBinding, strData)
-    -- local serialData = hexdump(strData)
-    -- TODO Send this back to the proxy
-    hexdump(strData)
-    C4:DebugLog("Received from serial device: " .. strData)
+function ReceivedFromNetwork(idBinding, nPort, strData)
+    C4:DebugLog("Received from network device: " .. strData)
 end

@@ -1,0 +1,18 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Microsoft Sans Serif;}}
+\viewkind4\uc1\pard\f0\fs13 This is a very simple IP driver for the GPO EZ Display walls. \par
+\par
+To use:\par
+- Verify that each diplay is daisy chained via serial connection. \par
+- Power on the first display\par
+- Using the remote, open the main menu, go to Networking and Enable it\par
+- Turn DHCP off and set a static IP address. This is required. \par
+- Add this driver to your project\par
+- Make a network connection to the static IP\par
+- Make the HDMI and Room connections\par
+- You will see Connected to Network: TRUE after a moment.\par
+\par
+It's important that Network remain DISABLED on all other displays. These diplays will receive either IP or Serial commands. Not both. \par
+\par
+Adjusting Individual Displays:\par
+You can use remote to adjust one or all of the displays. Change the Set ID in the properties window to the Set ID of the display you wish to contrrol. Set ID 00 will control all of the displays.\par
+}

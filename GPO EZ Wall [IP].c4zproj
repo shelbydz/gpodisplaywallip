@@ -1,0 +1,7 @@
+﻿<Driver type="c4z" name="GPO EZ Wall [IP]">
+ <Items>
+  <Item type="file" name="driver.lua" />
+  <Item type="file" name="driver.xml" />
+  <Item type="file" name="documentation.rtf" />
+ </Items>
+</Driver>

@@ -1,18 +1,18 @@
 <devicedata>
-  <version>8</version>
+  <version>4</version>
   <manufacturer>GPO</manufacturer>
-  <model>EZ Display Wall</model>
+  <model>EZ Display Wall [IP]</model>
   <search_type>c4:av_gen</search_type>
   <creator>Complete AV</creator>
-  <name>GPO EZ Display Wall [Serial]</name>
+  <name>GPO EZ Display Wall [IP]</name>
   <small>devices_sm/C4.gif</small>
   <large>devices_lg/C4.gif</large>
   <control>lua_gen</control>
-  <controlmethod>serial</controlmethod>
+  <controlmethod>ip</controlmethod>
   <driver>DriverWorks</driver>
   <copyright>2018 CompleteAV</copyright>
-  <created>04/01/2018 10:17 AM</created>
-  <modified>04/25/2018 10:31 AM</modified>
+  <created>10/05/2018 8:55 AM</created>
+  <modified>10/17/2018 4:27 PM</modified>
   <proxies qty="1">
     <proxy proxybindingid="5000" primary="True">tv</proxy>
   </proxies>
@@ -22,7 +22,7 @@
     <power_delay>2</power_delay>
     <power_command_delay>3</power_command_delay>
     <power_command_needed>False</power_command_needed>
-    <serialsettings>19200 8 none 0 none 232</serialsettings>
+    <serialsettings>19200 8 none 1 none 232</serialsettings>
     <properties>
       <property>
         <name>Set ID</name>
@@ -63,7 +63,13 @@
         </items>
         <tooltip>Set ID to control, 00 = All'</tooltip>
         <default>00</default>
-        <description>Set ID</description>
+        <description>Set ID for OSD control</description>
+      </property>
+      <property>
+        <name>Connected to Network</name>
+        <type>STRING</type>
+        <default>False</default>
+        <readonly>true</readonly>
       </property>
     </properties>
   </config>
@@ -80,21 +86,6 @@
       <classes>
         <class>
           <classname>TV</classname>
-        </class>
-      </classes>
-    </connection>
-    <connection proxybindingid="5000">
-      <type>1</type>
-      <id>1</id>
-      <audiosource>false</audiosource>
-      <videosource>false</videosource>
-      <connectionname>RS_232</connectionname>
-      <facing>1</facing>
-      <consumer>true</consumer>
-      <linelevel>false</linelevel>
-      <classes>
-        <class>
-          <classname>RS_232</classname>
         </class>
       </classes>
     </connection>
@@ -143,6 +134,32 @@
         </class>
       </classes>
     </connection>
+    <connection>
+      <type>4</type>
+      <id>6000</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>Network</connectionname>
+      <facing>1</facing>
+      <consumer>true</consumer>
+      <linelevel>true</linelevel>
+      <classes>
+        <class>
+          <classname>TCP</classname>
+          <ports>
+            <port>
+              <number>5000</number>
+              <auto_connect>true</auto_connect>
+              <monitor_connection>true</monitor_connection>
+              <keep_connection>true</keep_connection>
+            </port>
+          </ports>
+        </class>
+      </classes>
+    </connection>
   </connections>
   <capabilities></capabilities>
+  <composer_categories>
+    <category>Audio/Video</category>
+  </composer_categories>
 </devicedata>
